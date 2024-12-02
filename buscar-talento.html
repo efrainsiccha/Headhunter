@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabajadores en Perú | Headhunter</title>
+    <link rel="shortcut icon" href="resources/logo.webp" type="icono-logo">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/buscar-talento.css">
+</head>
+<body>
+    <!-- Contenedor principal de header -->
+    <header class="header">
+        <div class="header-container">
+            <!-- Logo y nombre -->
+            <div class="logo">
+                <img src="resources/logo.webp" alt="EmpleaSearch Logo" class="logo-img">
+                <span class="nombre-logo">Headhunter</span>
+            </div>
+
+        <!-- Barra de búsqueda y ubicación -->
+        <div class="search-container">
+            <input type="text" id="search" class="search-input" placeholder="Buscar trabajador por carrera o palabra clave">
+
+            <!-- Selector de ubicación -->
+            <select id="location" class="location-select">
+                <option value="" disabled selected>Lugar de Trabajo</option>
+                <option value="todos">Todo el país</option>
+                <option value="lima">Lima</option>
+                <option value="arequipa">Arequipa</option>
+                <option value="cusco">Cusco</option>
+                <option value="ancash">Áncash</option>
+                <option value="Apurimac">Apurímac</option>
+                <option value="aras">Araucanía</option>
+                <option value="ayacucho">Ayacucho</option>
+                <option value="cajamarca">Cajamarca</option>
+                <option value="callao">Callao</option>
+                <option value="cusco">Cusco</option>
+                <option value="huancavelica">Huancavelica</option>
+                <option value="huanuco">Huánuco</option>
+                <option value="ica">Ica</option>
+                <option value="junin">Junín</option>
+                <option value="la-libertad">La Libertad</option>
+                <option value="lambayeque">Lambayeque</option>
+                <option value="lima">Lima</option>
+                <option value="madre-de-dios">Madre de Dios</option>
+                <option value="moquegua">Moquegua</option>
+                <option value="pasco">Pasco</option>
+                <option value="piura">Piura</option>
+                <option value="puno">Puno</option>
+                <option value="san-martin">San Martín</option>
+                <option value="tacna">Tacna</option>
+                <option value="tumbes">Tumbes</option>
+                <option value="ucayali">Ucayali</option>
+            </select>
+
+            <button class="search-btn">
+                <img src="resources/lupa.webp" alt="Buscar" class="search-icon">
+            </button>
+        </div>
+    
+            <!-- Botones de Crear Cuenta e Ingresar -->
+            <div class="header-buttons">
+                <a href="crear-cuenta.html" class="btn-header create-account">Crear Cuenta</a>
+                <a href="ingresar.html" class="btn-header">Ingresar</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenedor del filtro en el lado derecho -->
+    <aside class="filter-container">
+        <div class="filter-header">
+            <h3>Filtros</h3>
+        </div>
+
+        <!-- Filtro: Fecha de publicación -->
+        <div class="filter-item">
+            <label for="fecha-publicacion">Fecha de publicación:</label>
+            <select id="fecha-publicacion" class="filter-select">
+                <option value="todos">Todos</option>
+                <option value="hoy">Hoy</option>
+                <option value="ultima-semana">Última semana</option>
+                <option value="ultimo-mes">Último mes</option>
+            </select>
+        </div>
+
+        <!-- Filtro: Área -->
+        <div class="filter-item">
+            <label for="area">Área:</label>
+            <select id="area" class="filter-select">
+                <option value="todos">Selecciona un área</option>
+                <option value="Tecnología">Tecnología</option>
+                <option value="Salud">Salud</option>
+                <option value="Educación">Educación</option>
+                <option value="Finanzas">Finanzas</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Derecho">Derecho</option>
+                <option value="Arte y Diseño">Arte y Diseño</option>
+                <option value="Ciencias Sociales">Ciencias Sociales</option>
+                <option value="Ciencias Naturales">Ciencias Naturales</option>
+                <option value="Turismo y Hotelería">Turismo y Hotelería</option>
+                <option value="Deportes">Deportes</option>
+                <option value="Industria y Producción">Industria y Producción</option>
+                <option value="Recursos Humanos">Recursos Humanos</option>
+            </select>
+        </div>
+
+        <!-- Filtro: Subárea -->
+        <div class="filter-item">
+            <label for="subarea">Subárea:</label>
+            <select id="subarea" class="filter-select">
+                <option value="todos">Selecciona una subárea</option>
+            </select>
+        </div>
+
+        <!-- Filtro: Departamento -->
+        <div class="filter-item">
+            <label for="departamento">Departamento:</label>
+            <select id="departamento" class="filter-select">
+                <option value="todos">Todos</option>
+                <option value="Lima">Lima</option>
+                <option value="Cusco">Cusco</option>
+                <option value="Arequipa">Arequipa</option>
+                <option value="Piura">Piura</option>
+                <option value="Áncash">Áncash</option>
+                <option value="Apurímac">Apurímac</option>
+                <option value="Ayacucho">Ayacucho</option>
+                <option value="Cajamarca">Cajamarca</option>
+                <option value="Callao">Callao</option>
+                <option value="Huancavelica">Huancavelica</option>
+                <option value="Huánuco">Huánuco</option>
+                <option value="Ica">Ica</option>
+                <option value="Junín">Junín</option>
+                <option value="La Libertad">La Libertad</option>
+                <option value="Lambayeque">Lambayeque</option>
+                <option value="Madre de Dios">Madre de Dios</option>
+                <option value="Moquegua">Moquegua</option>
+                <option value="Pasco">Pasco</option>
+                <option value="Puno">Puno</option>
+                <option value="San Martín">San Martín</option>
+                <option value="Tacna">Tacna</option>
+                <option value="Tumbes">Tumbes</option>
+                <option value="Ucayali">Ucayali</option>
+                <option value="Todo el país">Todo el país</option>
+            </select>
+        </div>
+
+        <!-- Filtro: Distrito -->
+        <div class="filter-item">
+            <label for="distrito">Distrito:</label>
+            <select id="distrito" class="filter-select">
+                <option value="todos">Selecciona un departamento</option>
+            </select>
+        </div>
+
+        <!-- Filtro: Modalidad de trabajo -->
+        <div class="filter-item">
+            <label for="modalidad">Modalidad de trabajo:</label>
+            <select id="modalidad" class="filter-select">
+                <option value="todos">Todos</option>
+                <option value="presencial">Presencial</option>
+                <option value="remoto">Remoto</option>
+                <option value="mixto">Mixto</option>
+            </select>
+        </div>
+
+        <!-- Filtro: Nivel laboral -->
+        <div class="filter-item">
+            <label for="nivel-laboral">Nivel laboral:</label>
+            <select id="nivel-laboral" class="filter-select">
+                <option value="todos">Todos</option>
+                <option value="junior">Junior</option>
+                <option value="senior">Senior</option>
+                <option value="senior">Semi Sr</option>
+                <option value="trainee">Trainee / Pasante</option>
+                <option value="sin-experiencia">Sin Experiencia</option>
+            </select>
+        </div>
+
+        <!-- Filtro: Carga horaria -->
+        <div class="filter-item">
+            <label for="carga-horaria">Carga horaria:</label>
+            <select id="carga-horaria" class="filter-select">
+                <option value="todos">Todos</option>
+                <option value="full-time">Full-Time</option>
+                <option value="part-time">Part-Time</option>
+                <option value="freelance">Freelance</option>
+            </select>
+        </div>
+
+        <!-- Botón de limpiar filtros -->
+        <div class="clear-filters">
+            <button class="clear-btn" id="clear-filters">
+                <img src="resources/basura.webp" alt="Eliminar filtro" class="trash-icon">
+                Borrar Filtros
+            </button>
+        </div>
+    </aside>
+
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-info">
+                <p>&copy; 2024 Headhunter. Todos los derechos reservados.</p>
+                <p>Plataforma de talento para empresas en búsqueda de los mejores profesionales.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/areas.js"></script>
+    <script src="js/departamentos.js"></script>
+    <script src="js/buscar-talento.js"></script>
+</body>
+</html>

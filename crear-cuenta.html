@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal para empresas - Headhunter</title>
+    <link rel="stylesheet" href="css/crear-cuenta.css">
+    <link rel="shortcut icon" href="resources/logo.webp" type="icono-logo">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+    <!-- Header con logo y nombre -->
+    <header class="header">
+        <a href="#" class="back-button" onclick="goBack()">
+            <img src="resources/flecha.webp" alt="Flecha de regreso" class="arrow-icon">
+        </a>
+
+        <div class="logo-container">
+            <img src="resources/logo.webp" alt="Logo Headhunter" class="logo">
+            <h1>Headhunter</h1>
+        </div>
+    </header>
+
+    <!-- Contenedor principal del formulario -->
+    <section class="login-container">
+        <form class="login-form">
+            <h2>Crea tu cuenta y encuentra tu trabajador ideal</h2>
+
+            <div class="enter-company">
+                <p>Ingresa los datos de la empresa</p>
+            </div>
+
+            <!-- Datos de la empresa -->
+            <div class="form-group">
+                <label for="company-name">Nombre de la Empresa</label>
+                <input type="text" id="company-name" name="company-name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="business-name">Razon Social</label>
+                <input type="text" id="business-name" name="business-name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="tax-condition">Condición Fiscal</label>
+                <select id="tax-condition" name="tax-condition" required>
+                    <option value="" disabled selected>Selecciona una opción</option>
+                    <option value="dni">DNI</option>
+                    <option value="ruc">RUC</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="document">Documento</label>
+                <input type="text" id="document" name="document" required>
+            </div>
+
+            <div class="form-group">
+                <label for="company-phone">Número</label>
+                <input type="tel" id="company-phone" name="company-phone" required>
+            </div>
+
+            <div class="form-group">
+                <label for="postal-code">Código Postal</label>
+                <input type="text" id="postal-code" name="postal-code" required>
+            </div>
+
+            <div class="form-group">
+                <label for="industry">Industria</label>
+                <select id="industry" name="industry" required>
+                    <option value="" disabled selected>Selecciona una industria</option>
+                    <option value="agricultura">Agricultura</option>
+                    <option value="alimentaria">Industria Alimentaria</option>
+                    <option value="automotriz">Automotriz</option>
+                    <option value="banca">Banca</option>
+                    <option value="biotecnologia">Biotecnología</option>
+                    <option value="quimica">Química</option>
+                    <option value="construccion">Construcción</option>
+                    <option value="educacion">Educación</option>
+                    <option value="energia">Energía</option>
+                    <option value="entretenimiento">Entretenimiento</option>
+                    <option value="financiera">Financiera</option>
+                    <option value="salud">Salud</option>
+                    <option value="textil">Textil</option>
+                    <option value="tecnologia">Tecnología</option>
+                    <option value="turismo">Turismo</option>
+                    <option value="transporte">Transporte</option>
+                    <option value="publicidad">Publicidad</option>
+                    <option value="mineria">Minería</option>
+                    <option value="logistica">Logística</option>
+                    <option value="consultoria">Consultoría</option>
+                    <option value="software">Software</option>
+                    <option value="cosmeticos">Cosméticos</option>
+                </select>
+            </div>
+            
+
+            <div class="form-group">
+                <label for="employee-count">Cantidad de Empleados</label>
+                <select id="employee-count" name="employee-count" required>
+                    <option value="" disabled selected>Selecciona la cantidad de empleados</option>
+                    <option value="1-10">1 - 10</option>
+                    <option value="11-50">11 - 50</option>
+                    <option value="51-200">51 - 200</option>
+                    <option value="201-500">201 - 500</option>
+                    <option value="501-1000">501 - 1000</option>
+                    <option value="1000+">Más de 1000</option>
+                </select>
+            </div>            
+
+            <!-- Datos del usuario -->
+            <div class="complete-user">
+                <p>Completa la información de tu usuario</p>
+            </div>
+
+            <div class="form-group">
+                <label for="first-name">Nombre(s)</label>
+                <input type="text" id="first-name" name="first-name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="last-name">Apellido(s)</label>
+                <input type="text" id="last-name" name="last-name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="user-email">Email</label>
+                <input type="email" id="user-email" name="user-email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" name="password" required>
+                <img src="resources/ojo-cerrado.webp" id="eye-icon-password" alt="Mostrar Contraseña" class="eye-icon" onclick="togglePassword('password')">
+            </div>
+            
+            <div class="form-group">
+                <label for="confirm-password">Repetir Contraseña</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+                <img src="resources/ojo-cerrado.webp" id="eye-icon-confirm-password" alt="Mostrar Contraseña" class="eye-icon" onclick="togglePassword('confirm-password')">
+            </div>
+            
+            <button type="submit" class="submit-btn">Crear Cuenta</button>
+
+            <div class="register-link">
+                <p>¿Ya tienes cuenta? <a href="ingresar.html">Ingresa a tu cuenta</a></p>
+            </div>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-info">
+                <p>&copy; 2024 Headhunter. Todos los derechos reservados.</p>
+                <p>Plataforma de talento para empresas en búsqueda de los mejores profesionales.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/crear-cuenta.js"></script>
+</body>
+</html>

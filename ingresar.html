@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingresa a tu cuenta en Headhunter</title>
+    <link rel="stylesheet" href="css/ingresar.css">
+    <link rel="shortcut icon" href="resources/logo.webp" type="icono-logo">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <!-- Header con logo y nombre -->
+    <header class="header">
+        <a href="#" class="back-button" onclick="goBack()">
+            <img src="resources/flecha.webp" alt="Flecha de regreso" class="arrow-icon">
+        </a>
+
+        <div class="logo-container">
+            <img src="resources/logo.webp" alt="Logo Headhunter" class="logo">
+            <h1>Headhunter</h1>
+        </div>
+    </header>
+
+    <!-- Contenedor principal del formulario -->
+    <section class="login-container">
+        <form class="login-form">
+            <h2>Ingresa a tu cuenta</h2>
+
+            <!-- Mensaje debajo del título -->
+            <div class="login-message">
+                <p>Accede y encuentra el perfil que buscas.</p>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" name="password" required>
+                <img src="resources/ojo-cerrado.webp" id="eye-icon" alt="Mostrar Contraseña" class="eye-icon" onclick="togglePassword()">
+            </div>
+
+            <!-- Enlace para olvido de contraseña -->
+            <div class="forgot-password">
+                <a href="#">Olvide mi contraseña</a>
+            </div>
+
+
+            <button type="submit" class="submit-btn">Ingresar</button>
+
+            <!-- Enlace para registrarse si no tiene cuenta -->
+            <div class="register-link">
+                <p>¿No tienes cuenta? <a href="crear-cuenta.html">Registra tu cuenta empresa</a></p>
+            </div>
+        </form>
+
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-info">
+                <p>&copy; 2024 Headhunter. Todos los derechos reservados.</p>
+                <p>Plataforma de talento para empresas en búsqueda de los mejores profesionales.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/ingresar.js"></script>
+</body>
+</html>

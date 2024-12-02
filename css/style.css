@@ -1,0 +1,352 @@
+body {
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #C9D6FF;
+    background: -webkit-linear-gradient(to right, #E2E2E2, #C9D6FF);
+    background: linear-gradient(to right, #E2E2E2, #C9D6FF);
+}
+
+/* HEADER */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.logo-img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    filter: brightness(0) invert(0);
+}
+
+.nombre-logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: black;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+}
+
+.btn-header.create-account {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.btn-header.create-account:hover {
+    background-color: #e0e0e0;
+    color: black;
+    border: 2px solid black;
+}
+
+.btn-header {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.btn-header:hover {
+    background-color: #333;
+}
+
+/* BANNER */
+
+.banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 90vh;
+    padding: 0 20px;
+}
+
+.banner-text {
+    max-width: 50%;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    order: 1;
+    margin-left: 40px;
+    padding-bottom: 20px;
+    height: 100%;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-5%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.banner-img {
+    width: 50%;
+    height: auto;
+    border-radius: 20px;
+    object-fit: cover;
+    max-width: 100%;
+    order: 2;
+    margin-right: 40px;
+    opacity: 0;
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.banner-img.show-image {
+    opacity: 1;
+    animation: slideIn 1s ease-out forwards;
+}
+
+.banner h1 {
+    font-size: 3rem;
+    margin: 0;
+    line-height: 1.2;
+    font-weight: 300;
+    text-align: center;
+    letter-spacing: 1px;
+    margin-bottom: 0;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.banner h1 .bold-number {
+    font-weight: 700;
+}
+
+.banner h2.center-text {
+    font-size: 3rem;
+    font-weight: 400;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.btn-buscar {
+    margin-top: 20px;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    text-align: center;
+    width: 70%;
+    max-width: 450px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    align-self: center;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto hover del botón */
+.btn-buscar:hover {
+    background-color: #333;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* ACERCA DE */
+
+#acerca {
+    display: block;
+    margin-top: 40px;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 80px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+    margin-bottom: 30px;
+    width: 100%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card h2, .card h3 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.card p, .card ul, .card ol {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.card ul, .card ol {
+    text-align: left;
+    padding-left: 20px;
+}
+
+.card li {
+    margin: 10px 0;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.05); 
+}
+
+/* FOOTER */
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.footer-info {
+    flex: 1;
+    padding: 10px;
+}
+
+/* MEDIA QUERIES PARA RESPONSIVE */
+
+@media (max-width: 1024px) {
+    .banner {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        padding: 20px;
+    }
+
+    .banner-text {
+        max-width: 80%;
+        margin-left: 0;
+    }
+
+    .banner-img {
+        width: 80%;
+        margin-right: 0;
+        order: 1;
+    }
+
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-buttons {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    .btn-header {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .btn-buscar {
+        width: 90%;
+        margin-top: 20px;
+    }
+
+    .card {
+        padding: 40px;
+        margin: 20px;
+    }
+
+    footer .footer-container {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .banner h1 {
+        font-size: 2.5rem;
+    }
+
+    .banner h2.center-text {
+        font-size: 2rem;
+    }
+
+    .logo-img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .logo {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header-container {
+        padding: 10px;
+        flex-direction: column;
+    }
+
+    .card {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner h1 {
+        font-size: 2rem;
+    }
+
+    .btn-buscar {
+        font-size: 1rem;
+    }
+
+    .header-container {
+        padding: 15px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+}

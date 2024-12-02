@@ -1,0 +1,266 @@
+/* Reseteo básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background: #C9D6FF;
+    background: -webkit-linear-gradient(to right, #E2E2E2, #C9D6FF);
+    background: linear-gradient(to right, #E2E2E2, #C9D6FF);
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+
+/* Header */
+.header {
+    background-color: white;
+    color: black;
+    padding: 5px 0;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Botón de regreso (flecha) */
+.back-button {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    text-decoration: none;
+}
+
+.arrow-icon {
+    width: 30px;
+    height: auto;
+}
+
+.header .logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.header .logo {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+/* Contenedor principal */
+.login-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Estilo del formulario */
+.login-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    padding: 20px;
+}
+
+/* Formulario de campo */
+.login-form .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.login-form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.login-form input,
+.login-form select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.login-form input:focus,
+.login-form select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Estilo de los encabezados */
+h2 {
+    grid-column: span 2;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Sección de los subtítulos */
+.enter-company,
+.complete-user {
+    grid-column: span 2;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+/* Botón de enviar */
+.submit-btn {
+    grid-column: span 2;
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #555;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+/* Icono de mostrar contraseña */
+.eye-icon {
+    position: absolute;
+    right: 15px;
+    top: 70%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+}
+
+/* Enlace de registro */
+.register-link {
+    grid-column: span 2;
+    text-align: center;
+    font-size: 18px;
+    position: relative;
+    top: 20px;
+}
+
+.register-link a {
+    color: #333;
+    text-decoration: none;
+}
+
+.register-link a:hover {
+    color: blue;
+}
+
+/* FOOTER */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.footer-info {
+    flex: 1;
+    padding: 10px;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    /* Forzamos una sola columna */
+    .login-form {
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+    }
+
+    /* Ajustes para que el botón ocupe toda la fila */
+    .submit-btn {
+        grid-column: span 1 !important;
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    /* El contenedor principal ocupa más espacio en pantallas pequeñas */
+    .login-container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    /* Reducción de tamaño de los elementos */
+    h2 {
+        font-size: 22px;
+    }
+
+    .login-form label {
+        font-size: 14px;
+    }
+
+    .register-link {
+        font-size: 14px;
+        top: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Adaptación para dispositivos móviles más pequeños */
+    body {
+        padding: 10px;
+    }
+
+    .login-container {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .login-form {
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+    }
+
+    .login-form label {
+        font-size: 12px;
+    }
+
+    .login-form input,
+    .login-form select {
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    .submit-btn {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    .register-link {
+        font-size: 12px;
+    }
+}
