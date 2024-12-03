@@ -173,6 +173,22 @@ body {
     color: blue;
 }
 
+#message-container {
+    display: none;
+    position: fixed; /* Para que se muestre en la pantalla completa */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centra el mensaje */
+    padding: 20px;
+    font-size: 16px;
+    color: white;
+    border-radius: 5px;
+    z-index: 9999; /* Para asegurarse de que esté por encima de todo el contenido */
+    text-align: center;
+    width: 80%;
+    max-width: 400px;
+}
+
 /* FOOTER */
 footer {
     background-color: #333;

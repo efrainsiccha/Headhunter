@@ -16,191 +16,414 @@
     <!-- Contenedor principal de header -->
     <header class="header">
         <div class="header-container">
+
             <!-- Logo y nombre -->
             <div class="logo">
-                <img src="resources/logo.webp" alt="EmpleaSearch Logo" class="logo-img">
-                <span class="nombre-logo">Headhunter</span>
+                <a href="index.html">
+                    <img src="resources/logo.webp" alt="EmpleaSearch Logo" class="logo-img">
+                    <span class="nombre-logo">Headhunter</span>
+                </a>
             </div>
 
-        <!-- Barra de búsqueda y ubicación -->
-        <div class="search-container">
-            <input type="text" id="search" class="search-input" placeholder="Buscar trabajador por carrera o palabra clave">
+            <!-- Barra de búsqueda y ubicación -->
+            <div class="search-container">
+                <input type="text" id="search" class="search-input" placeholder="Buscar trabajador por carrera o palabra clave">
 
-            <!-- Selector de ubicación -->
-            <select id="location" class="location-select">
-                <option value="" disabled selected>Lugar de Trabajo</option>
-                <option value="todos">Todo el país</option>
-                <option value="lima">Lima</option>
-                <option value="arequipa">Arequipa</option>
-                <option value="cusco">Cusco</option>
-                <option value="ancash">Áncash</option>
-                <option value="Apurimac">Apurímac</option>
-                <option value="aras">Araucanía</option>
-                <option value="ayacucho">Ayacucho</option>
-                <option value="cajamarca">Cajamarca</option>
-                <option value="callao">Callao</option>
-                <option value="cusco">Cusco</option>
-                <option value="huancavelica">Huancavelica</option>
-                <option value="huanuco">Huánuco</option>
-                <option value="ica">Ica</option>
-                <option value="junin">Junín</option>
-                <option value="la-libertad">La Libertad</option>
-                <option value="lambayeque">Lambayeque</option>
-                <option value="lima">Lima</option>
-                <option value="madre-de-dios">Madre de Dios</option>
-                <option value="moquegua">Moquegua</option>
-                <option value="pasco">Pasco</option>
-                <option value="piura">Piura</option>
-                <option value="puno">Puno</option>
-                <option value="san-martin">San Martín</option>
-                <option value="tacna">Tacna</option>
-                <option value="tumbes">Tumbes</option>
-                <option value="ucayali">Ucayali</option>
-            </select>
+                <!-- Selector de ubicación -->
+                <select id="location" class="location-select">
+                    <option value="" disabled selected>Lugar de Trabajo</option>
+                    <option value="todos">Todo el país</option>
+                    <option value="lima">Lima</option>
+                    <option value="arequipa">Arequipa</option>
+                    <option value="cusco">Cusco</option>
+                    <option value="ancash">Áncash</option>
+                    <option value="Apurimac">Apurímac</option>
+                    <option value="aras">Araucanía</option>
+                    <option value="ayacucho">Ayacucho</option>
+                    <option value="cajamarca">Cajamarca</option>
+                    <option value="callao">Callao</option>
+                    <option value="cusco">Cusco</option>
+                    <option value="huancavelica">Huancavelica</option>
+                    <option value="huanuco">Huánuco</option>
+                    <option value="ica">Ica</option>
+                    <option value="junin">Junín</option>
+                    <option value="la-libertad">La Libertad</option>
+                    <option value="lambayeque">Lambayeque</option>
+                    <option value="lima">Lima</option>
+                    <option value="madre-de-dios">Madre de Dios</option>
+                    <option value="moquegua">Moquegua</option>
+                    <option value="pasco">Pasco</option>
+                    <option value="piura">Piura</option>
+                    <option value="puno">Puno</option>
+                    <option value="san-martin">San Martín</option>
+                    <option value="tacna">Tacna</option>
+                    <option value="tumbes">Tumbes</option>
+                    <option value="ucayali">Ucayali</option>
+                </select>
 
-            <button class="search-btn">
-                <img src="resources/lupa.webp" alt="Buscar" class="search-icon">
-            </button>
-        </div>
+                <button class="search-btn">
+                    <img src="resources/lupa.webp" alt="Buscar" class="search-icon">
+                </button>
+            </div>
     
             <!-- Botones de Crear Cuenta e Ingresar -->
             <div class="header-buttons">
                 <a href="crear-cuenta.html" class="btn-header create-account">Crear Cuenta</a>
                 <a href="ingresar.html" class="btn-header">Ingresar</a>
+                <button id="logout-btn" class="btn-header logout-btn" style="display:none;" onclick="logout()">Cerrar Sesión</button>
             </div>
         </div>
     </header>
 
-    <!-- Contenedor del filtro en el lado derecho -->
-    <aside class="filter-container">
-        <div class="filter-header">
-            <h3>Filtros</h3>
-        </div>
+    <div class="content-container">
+        <!-- Contenedor del filtro en el lado derecho -->
+        <aside class="filter-container">
+            <div class="filter-header">
+                <h3>Filtros</h3>
+            </div>
 
-        <!-- Filtro: Fecha de publicación -->
-        <div class="filter-item">
-            <label for="fecha-publicacion">Fecha de publicación:</label>
-            <select id="fecha-publicacion" class="filter-select">
-                <option value="todos">Todos</option>
-                <option value="hoy">Hoy</option>
-                <option value="ultima-semana">Última semana</option>
-                <option value="ultimo-mes">Último mes</option>
-            </select>
-        </div>
+            <!-- Filtro: Fecha de publicación -->
+            <div class="filter-item">
+                <label for="fecha-publicacion">Fecha de publicación:</label>
+                <select id="fecha-publicacion" class="filter-select">
+                    <option value="todos">Todos</option>
+                    <option value="hoy">Hoy</option>
+                    <option value="ultima-semana">Última semana</option>
+                    <option value="ultimo-mes">Último mes</option>
+                </select>
+            </div>
 
-        <!-- Filtro: Área -->
-        <div class="filter-item">
-            <label for="area">Área:</label>
-            <select id="area" class="filter-select">
-                <option value="todos">Selecciona un área</option>
-                <option value="Tecnología">Tecnología</option>
-                <option value="Salud">Salud</option>
-                <option value="Educación">Educación</option>
-                <option value="Finanzas">Finanzas</option>
-                <option value="Marketing">Marketing</option>
-                <option value="Derecho">Derecho</option>
-                <option value="Arte y Diseño">Arte y Diseño</option>
-                <option value="Ciencias Sociales">Ciencias Sociales</option>
-                <option value="Ciencias Naturales">Ciencias Naturales</option>
-                <option value="Turismo y Hotelería">Turismo y Hotelería</option>
-                <option value="Deportes">Deportes</option>
-                <option value="Industria y Producción">Industria y Producción</option>
-                <option value="Recursos Humanos">Recursos Humanos</option>
-            </select>
-        </div>
+            <!-- Filtro: Área -->
+            <div class="filter-item">
+                <label for="area">Área:</label>
+                <select id="area" class="filter-select">
+                    <option value="todos">Selecciona un área</option>
+                    <option value="Tecnología">Tecnología</option>
+                    <option value="Salud">Salud</option>
+                    <option value="Educación">Educación</option>
+                    <option value="Finanzas">Finanzas</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Derecho">Derecho</option>
+                    <option value="Arte y Diseño">Arte y Diseño</option>
+                    <option value="Ciencias Sociales">Ciencias Sociales</option>
+                    <option value="Ciencias Naturales">Ciencias Naturales</option>
+                    <option value="Turismo y Hotelería">Turismo y Hotelería</option>
+                    <option value="Deportes">Deportes</option>
+                    <option value="Industria y Producción">Industria y Producción</option>
+                    <option value="Recursos Humanos">Recursos Humanos</option>
+                </select>
+            </div>
 
-        <!-- Filtro: Subárea -->
-        <div class="filter-item">
-            <label for="subarea">Subárea:</label>
-            <select id="subarea" class="filter-select">
-                <option value="todos">Selecciona una subárea</option>
-            </select>
-        </div>
+            <!-- Filtro: Subárea -->
+            <div class="filter-item">
+                <label for="subarea">Subárea:</label>
+                <select id="subarea" class="filter-select">
+                    <option value="todos">Selecciona una subárea</option>
+                </select>
+            </div>
 
-        <!-- Filtro: Departamento -->
-        <div class="filter-item">
-            <label for="departamento">Departamento:</label>
-            <select id="departamento" class="filter-select">
-                <option value="todos">Todos</option>
-                <option value="Lima">Lima</option>
-                <option value="Cusco">Cusco</option>
-                <option value="Arequipa">Arequipa</option>
-                <option value="Piura">Piura</option>
-                <option value="Áncash">Áncash</option>
-                <option value="Apurímac">Apurímac</option>
-                <option value="Ayacucho">Ayacucho</option>
-                <option value="Cajamarca">Cajamarca</option>
-                <option value="Callao">Callao</option>
-                <option value="Huancavelica">Huancavelica</option>
-                <option value="Huánuco">Huánuco</option>
-                <option value="Ica">Ica</option>
-                <option value="Junín">Junín</option>
-                <option value="La Libertad">La Libertad</option>
-                <option value="Lambayeque">Lambayeque</option>
-                <option value="Madre de Dios">Madre de Dios</option>
-                <option value="Moquegua">Moquegua</option>
-                <option value="Pasco">Pasco</option>
-                <option value="Puno">Puno</option>
-                <option value="San Martín">San Martín</option>
-                <option value="Tacna">Tacna</option>
-                <option value="Tumbes">Tumbes</option>
-                <option value="Ucayali">Ucayali</option>
-                <option value="Todo el país">Todo el país</option>
-            </select>
-        </div>
+            <!-- Filtro: Departamento -->
+            <div class="filter-item">
+                <label for="departamento">Departamento:</label>
+                <select id="departamento" class="filter-select">
+                    <option value="todos">Todos</option>
+                    <option value="Lima">Lima</option>
+                    <option value="Cusco">Cusco</option>
+                    <option value="Arequipa">Arequipa</option>
+                    <option value="Piura">Piura</option>
+                    <option value="Áncash">Áncash</option>
+                    <option value="Apurímac">Apurímac</option>
+                    <option value="Ayacucho">Ayacucho</option>
+                    <option value="Cajamarca">Cajamarca</option>
+                    <option value="Callao">Callao</option>
+                    <option value="Huancavelica">Huancavelica</option>
+                    <option value="Huánuco">Huánuco</option>
+                    <option value="Ica">Ica</option>
+                    <option value="Junín">Junín</option>
+                    <option value="La Libertad">La Libertad</option>
+                    <option value="Lambayeque">Lambayeque</option>
+                    <option value="Madre de Dios">Madre de Dios</option>
+                    <option value="Moquegua">Moquegua</option>
+                    <option value="Pasco">Pasco</option>
+                    <option value="Puno">Puno</option>
+                    <option value="San Martín">San Martín</option>
+                    <option value="Tacna">Tacna</option>
+                    <option value="Tumbes">Tumbes</option>
+                    <option value="Ucayali">Ucayali</option>
+                    <option value="Todo el país">Todo el país</option>
+                </select>
+            </div>
 
-        <!-- Filtro: Distrito -->
-        <div class="filter-item">
-            <label for="distrito">Distrito:</label>
-            <select id="distrito" class="filter-select">
-                <option value="todos">Selecciona un departamento</option>
-            </select>
-        </div>
+            <!-- Filtro: Distrito -->
+            <div class="filter-item">
+                <label for="distrito">Distrito:</label>
+                <select id="distrito" class="filter-select">
+                    <option value="todos">Selecciona un departamento</option>
+                </select>
+            </div>
 
-        <!-- Filtro: Modalidad de trabajo -->
-        <div class="filter-item">
-            <label for="modalidad">Modalidad de trabajo:</label>
-            <select id="modalidad" class="filter-select">
-                <option value="todos">Todos</option>
-                <option value="presencial">Presencial</option>
-                <option value="remoto">Remoto</option>
-                <option value="mixto">Mixto</option>
-            </select>
-        </div>
+            <!-- Filtro: Modalidad de trabajo -->
+            <div class="filter-item">
+                <label for="modalidad">Modalidad de trabajo:</label>
+                <select id="modalidad" class="filter-select">
+                    <option value="todos">Todos</option>
+                    <option value="presencial">Presencial</option>
+                    <option value="remoto">Remoto</option>
+                    <option value="mixto">Mixto</option>
+                </select>
+            </div>
 
-        <!-- Filtro: Nivel laboral -->
-        <div class="filter-item">
-            <label for="nivel-laboral">Nivel laboral:</label>
-            <select id="nivel-laboral" class="filter-select">
-                <option value="todos">Todos</option>
-                <option value="junior">Junior</option>
-                <option value="senior">Senior</option>
-                <option value="senior">Semi Sr</option>
-                <option value="trainee">Trainee / Pasante</option>
-                <option value="sin-experiencia">Sin Experiencia</option>
-            </select>
-        </div>
+            <!-- Filtro: Nivel laboral -->
+            <div class="filter-item">
+                <label for="nivel-laboral">Nivel laboral:</label>
+                <select id="nivel-laboral" class="filter-select">
+                    <option value="todos">Todos</option>
+                    <option value="junior">Junior</option>
+                    <option value="senior">Senior</option>
+                    <option value="senior">Semi Sr</option>
+                    <option value="trainee">Trainee / Pasante</option>
+                    <option value="sin-experiencia">Sin Experiencia</option>
+                </select>
+            </div>
 
-        <!-- Filtro: Carga horaria -->
-        <div class="filter-item">
-            <label for="carga-horaria">Carga horaria:</label>
-            <select id="carga-horaria" class="filter-select">
-                <option value="todos">Todos</option>
-                <option value="full-time">Full-Time</option>
-                <option value="part-time">Part-Time</option>
-                <option value="freelance">Freelance</option>
-            </select>
-        </div>
+            <!-- Filtro: Carga horaria -->
+            <div class="filter-item">
+                <label for="carga-horaria">Carga horaria:</label>
+                <select id="carga-horaria" class="filter-select">
+                    <option value="todos">Todos</option>
+                    <option value="full-time">Full-Time</option>
+                    <option value="part-time">Part-Time</option>
+                    <option value="freelance">Freelance</option>
+                </select>
+            </div>
 
-        <!-- Botón de limpiar filtros -->
-        <div class="clear-filters">
-            <button class="clear-btn" id="clear-filters">
-                <img src="resources/basura.webp" alt="Eliminar filtro" class="trash-icon">
-                Borrar Filtros
-            </button>
-        </div>
-    </aside>
+            <!-- Botón de limpiar filtros -->
+            <div class="clear-filters">
+                <button class="clear-btn" id="clear-filters">
+                    <img src="resources/basura.webp" alt="Eliminar filtro" class="trash-icon">
+                    Borrar Filtros
+                </button>
+            </div>
+        </aside>
 
+        <div class="worker-cards-container">
+            <!-- Norka Maricielo Paredes -->
+            <div class="worker-card"
+                 data-area="Finanzas"
+                 data-subarea="Administración de Empresas" 
+                 data-fecha="ultima-semana" 
+                 data-departamento="La Libertad"
+                 data-distrito="Trujillo" 
+                 data-modalidad="presencial"
+                 data-nivel="senior"
+                 data-carga-horaria="full-time"
+                 onclick="openModal('Norka Maricielo Paredes', 'Administración de Empresas', 'Profesional con más de 5 años de experiencia en gestión de recursos humanos y optimización de procesos administrativos.', 'La Libertad - Trujillo', '1 día atrás', 'pnorka26@gmail.com', '987654321')">
+                <div class="worker-info">
+                    <h4 class="worker-name">Norka Maricielo Paredes</h4>
+                    <p class="worker-position">Administración de Empresas</p>
+                    <p class="worker-description">Profesional con más de 5 años de experiencia en gestión de recursos humanos y optimización de procesos administrativos.</p>
+                    <p class="worker-location">Ubicación: La Libertad - Trujillo</p>
+                    <p class="worker-date">Publicado: 1 día atrás</p>
+                </div>
+            </div>
+        
+            <!-- Graciela Elizabeth Terrones Huaripata -->
+            <div class="worker-card" 
+                 data-area="Finanzas"
+                 data-subarea="Administración de Empresas" 
+                 data-fecha="ultima-semana" 
+                 data-departamento="La Libertad"
+                 data-distrito="Trujillo" 
+                 data-modalidad="presencial"
+                 data-nivel="senior"
+                 data-carga-horaria="full-time"
+                 onclick="openModal('Graciela Elizabeth Terrones Huaripata', 'Administración de Empresas', 'Especialista en gestión de proyectos, con enfoque en la mejora continua y la eficiencia operativa en empresas del sector servicios.', 'La Libertad - Trujillo', '3 días atrás', 'grterronesh@ucvvirtual.edu.pe', '987654322')">
+                <div class="worker-info">
+                    <h4 class="worker-name">Graciela Elizabeth Terrones Huaripata</h4>
+                    <p class="worker-position">Administración de Empresas</p>
+                    <p class="worker-description">Especialista en gestión de proyectos, con enfoque en la mejora continua y la eficiencia operativa en empresas del sector servicios.</p>
+                    <p class="worker-location">Ubicación: La Libertad - Trujillo</p>
+                    <p class="worker-date">Publicado: 3 días atrás</p>
+                </div>
+            </div>
+        
+            <!-- Piero Alejandro Sanchez Palomino -->
+            <div class="worker-card"
+                 data-area="Finanzas" 
+                 data-subarea="Administración de Empresas"
+                 data-fecha="ultima-semana" 
+                 data-departamento="La Libertad"
+                 data-distrito="Trujillo"  
+                 data-modalidad="presencial"
+                 data-nivel="senior"
+                 data-carga-horaria="full-time"
+                 onclick="openModal('Piero Alejandro Sanchez Palomino', 'Administración de Empresas', 'Experto en gestión financiera y análisis de datos, con una sólida trayectoria en empresas multinacionales.', 'La Libertad - Trujillo', '5 días atrás', 'pieroalenadro@gmail.com', '987654323')">
+                <div class="worker-info">
+                    <h4 class="worker-name">Piero Alejandro Sanchez Palomino</h4>
+                    <p class="worker-position">Administración de Empresas</p>
+                    <p class="worker-description">Experto en gestión financiera y análisis de datos, con una sólida trayectoria en empresas multinacionales.</p>
+                    <p class="worker-location">Ubicación: La Libertad - Trujillo</p>
+                    <p class="worker-date">Publicado: 5 días atrás</p>
+                </div>
+            </div>
+        
+            <!-- Juan Carlos Cerna Figueroa -->
+            <div class="worker-card"
+                 data-area="Finanzas" 
+                 data-subarea="Administración de Empresas" 
+                 data-fecha="ultima-semana" 
+                 data-departamento="La Libertad"
+                 data-distrito="Trujillo"  
+                 data-modalidad="presencial"
+                 data-nivel="senior"
+                 data-carga-horaria="full-time"
+                 onclick="openModal('Juan Carlos Cerna Figueroa', 'Administración de Empresas', 'Líder en la creación y ejecución de estrategias empresariales orientadas al crecimiento y la expansión comercial.', 'La Libertad - Trujillo', '1 semana atrás', 'jcernafi@ucvvirtual.edu.pe', '987654324')">
+                <div class="worker-info">
+                    <h4 class="worker-name">Juan Carlos Cerna Figueroa</h4>
+                    <p class="worker-position">Administración de Empresas</p>
+                    <p class="worker-description">Líder en la creación y ejecución de estrategias empresariales orientadas al crecimiento y la expansión comercial.</p>
+                    <p class="worker-location">Ubicación: La Libertad - Trujillo</p>
+                    <p class="worker-date">Publicado: 1 semana atrás</p>
+                </div>
+            </div>
+        
+            <!-- Jose Alfonso Leyva Urbina -->
+            <div class="worker-card"
+                 data-area="Finanzas" 
+                 data-subarea="Administración de Empresas" 
+                 data-fecha="ultima-semana" 
+                 data-departamento="La Libertad"
+                 data-distrito="Trujillo"  
+                 data-modalidad="presencial"
+                 data-nivel="senior"
+                 data-carga-horaria="full-time"
+                 onclick="openModal('Jose Alfonso Leyva Urbina', 'Administración de Empresas', 'Consultor en desarrollo organizacional, especializado en la capacitación y mejora del clima laboral de grandes empresas.', 'La Libertad - Trujillo', '2 semanas atrás', 'alfonso.leyvau@gmail.com', '987654325')">
+                <div class="worker-info">
+                    <h4 class="worker-name">Jose Alfonso Leyva Urbina</h4>
+                    <p class="worker-position">Administración de Empresas</p>
+                    <p class="worker-description">Consultor en desarrollo organizacional, especializado en la capacitación y mejora del clima laboral de grandes empresas.</p>
+                    <p class="worker-location">Ubicación: La Libertad - Trujillo</p>
+                    <p class="worker-date">Publicado: 2 semanas atrás</p>
+                </div>
+            </div>
+        
+            <!-- Daniel Huaripata Gálvez -->
+            <div class="worker-card"
+                 data-area="Finanzas" 
+                 data-subarea="Administración de Empresas" 
+                 data-fecha="ultima-semana" 
+                 data-departamento="La Libertad"
+                 data-distrito="Trujillo"  
+                 data-modalidad="presencial"
+                 data-nivel="senior"
+                 data-carga-horaria="full-time"
+                 onclick="openModal('Daniel Huaripata Gálvez', 'Administración de Empresas', 'Gestor de proyectos con experiencia en administración y optimización de recursos en empresas de tecnología y manufactura.', 'La Libertad - Trujillo', '3 semanas atrás', 'dhuaripataga@ucvvirtual.edu.pe', '987654326')">
+                <div class="worker-info">
+                    <h4 class="worker-name">Daniel Huaripata Gálvez</h4>
+                    <p class="worker-position">Administración de Empresas</p>
+                    <p class="worker-description">Gestor de proyectos con experiencia en administración y optimización de recursos en empresas de tecnología y manufactura.</p>
+                    <p class="worker-location">Ubicación: La Libertad - Trujillo</p>
+                    <p class="worker-date">Publicado: 3 semanas atrás</p>
+                </div>
+            </div>
+        
+            <!-- Carlos López -->
+            <div class="worker-card"
+                 data-area="Tecnología" 
+                 data-subarea="Desarrollador de Software" 
+                 data-fecha="ultima-semana" 
+                 data-departamento="Lima"
+                 data-distrito="San Isidro"
+                 data-modalidad="remoto"
+                 data-nivel="senior"
+                 data-carga-horaria="full-time"
+                 onclick="openModal('Carlos López', 'Desarrollador de Software', 'Desarrollador con 6 años de experiencia en creación de aplicaciones de software a medida utilizando Java y Python.', 'Lima - San Isidro', '2 días atrás', 'carlos.lopez@example.com', '987654327')">
+                <img src="resources/trabajador1.webp" alt="Carlos López" class="worker-img">
+                <div class="worker-info">
+                    <h4 class="worker-name">Carlos López</h4>
+                    <p class="worker-position">Desarrollador de Software</p>
+                    <p class="worker-description">Desarrollador con 6 años de experiencia en creación de aplicaciones de software a medida utilizando Java y Python.</p>
+                    <p class="worker-location">Ubicación: Lima - San Isidro</p>
+                    <p class="worker-date">Publicado: 2 días atrás</p>
+                </div>
+            </div>
+        
+            <!-- Laura García -->
+            <div class="worker-card"
+                 data-area="Salud" 
+                 data-subarea="Psicología" 
+                 data-fecha="ultima-semana" 
+                 data-departamento="Arequipa"
+                 data-modalidad="presencial"
+                 data-nivel="senior"
+                 data-carga-horaria="part-time"
+                 onclick="openModal('Laura García', 'Psicóloga', 'Psicóloga clínica con más de 10 años de experiencia ayudando a personas con trastornos de ansiedad y depresión.', 'Arequipa - Arequipa', '1 semana atrás', 'laura.garcia@example.com', '987654328')">
+                <img src="resources/trabajador2.webp" alt="Laura García" class="worker-img">
+                <div class="worker-info">
+                    <h4 class="worker-name">Laura García</h4>
+                    <p class="worker-position">Psicóloga</p>
+                    <p class="worker-description">Psicóloga clínica con más de 10 años de experiencia ayudando a personas con trastornos de ansiedad y depresión.</p>
+                    <p class="worker-location">Ubicación: Arequipa - Arequipa</p>
+                    <p class="worker-date">Publicado: 1 semana atrás</p>
+                </div>
+            </div>
+        
+            <!-- Ana Pérez -->
+            <div class="worker-card"
+                 data-area="Arte y Diseño" 
+                 data-subarea="Diseño Gráfico" 
+                 data-fecha="ultima-semana"  
+                 data-departamento="Piura"
+                 data-modalidad="presencial"
+                 data-nivel="junior"
+                 data-carga-horaria="full-time"
+                 onclick="openModal('Ana Pérez', 'Diseñadora Gráfica', 'Especialista en diseño visual y creación de identidades corporativas para marcas internacionales.', 'Piura - Piura', '3 semanas atrás', 'ana.perez@example.com', '987654329')">
+                <img src="resources/trabajador3.webp" alt="Ana Pérez" class="worker-img">
+                <div class="worker-info">
+                    <h4 class="worker-name">Ana Pérez</h4>
+                    <p class="worker-position">Diseñadora Gráfica</p>
+                    <p class="worker-description">Especialista en diseño visual y creación de identidades corporativas para marcas internacionales.</p>
+                    <p class="worker-location">Ubicación: Piura - Piura</p>
+                    <p class="worker-date">Publicado: 3 semanas atrás</p>
+                </div>
+            </div>
+        
+            <!-- Marta Fernández -->
+            <div class="worker-card"
+                 data-area="Turismo y Hotelería" 
+                 data-subarea="Gestión de Eventos" 
+                 data-fecha="ultima-semana"
+                 data-departamento="Lima"
+                 data-modalidad="presencial"
+                 data-nivel="senior"
+                 data-carga-horaria="full-time"
+                 onclick="openModal('Marta Fernández', 'Gestora de Eventos', 'Con 8 años de experiencia organizando eventos corporativos, desde conferencias hasta eventos sociales de alto nivel.', 'Lima - Miraflores', '2 semanas atrás', 'marta.fernandez@example.com', '987654330')">
+                <img src="resources/trabajador4.webp" alt="Marta Fernández" class="worker-img">
+                <div class="worker-info">
+                    <h4 class="worker-name">Marta Fernández</h4>
+                    <p class="worker-position">Gestora de Eventos</p>
+                    <p class="worker-description">Con 8 años de experiencia organizando eventos corporativos, desde conferencias hasta eventos sociales de alto nivel.</p>
+                    <p class="worker-location">Ubicación: Lima - Miraflores</p>
+                    <p class="worker-date">Publicado: 2 semanas atrás</p>
+                </div>
+            </div>
+        </div>        
+
+        <!-- Modal con los detalles del trabajador -->
+        <div id="workerModal" class="modal">
+            <div class="modal-content">
+                <button class="close-btn" onclick="closeModal()">×</button>
+                <h4 id="modal-name"></h4>
+                <p id="modal-position"></p>
+                <p id="modal-description"></p>
+                <p id="modal-location"></p>
+                <p id="modal-date"></p>
+                <p><strong>Email:</strong> <span id="modal-email"></span></p>
+                <p><strong>Teléfono:</strong> <span id="modal-phone"></span></p>
+                <a href="#" id="hire-btn" class="hire-btn">Contactar</a>
+            </div>
+        </div>
+    </div>
 
     <footer>
         <div class="footer-container">

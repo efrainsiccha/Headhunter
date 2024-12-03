@@ -44,7 +44,8 @@ const areas = {
         "Economía",
         "Mercados Financieros",
         "Planificación Financiera",
-        "Finanzas Corporativas"
+        "Finanzas Corporativas",
+        "Administración de Empresas"
     ],
     "Marketing": [
         "SEO",
@@ -152,6 +153,7 @@ const areas = {
         "Bienestar Corporativo",
         "Administración de Personal",
         "Gestión de Desempeño",
-        "Responsabilidad Social Empresarial"
+        "Responsabilidad Social Empresarial",
+        "Administración de Empresas" 
     ]
 };

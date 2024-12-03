@@ -1,0 +1,176 @@
+/* Reseteo básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background: #C9D6FF;
+    background: -webkit-linear-gradient(to right, #E2E2E2, #C9D6FF);
+    background: linear-gradient(to right, #E2E2E2, #C9D6FF);
+    height: 100vh;
+    
+}
+
+/* Header */
+.header {
+    background-color: white;
+    color: black;
+    padding: 5px 0;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Botón de regreso (flecha) */
+.back-button {
+    position: absolute;  /* Lo posiciona en el lado izquierdo */
+    left: 20px;  /* Espacio desde el borde izquierdo */
+    top: 50%;  /* Centrado verticalmente */
+    transform: translateY(-50%);  /* Ajuste para alinear verticalmente */
+    text-decoration: none;  /* Elimina el subrayado del enlace */
+}
+
+.arrow-icon {
+    width: 30px;  /* Ajusta el tamaño de la flecha */
+    height: auto;  /* Mantiene la proporción de la imagen */
+}
+
+.header .logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.header .logo {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+/* Contenedor del formulario de contacto */
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    flex-grow: 1;  /* Hace que el contenedor ocupe el espacio restante */
+    margin-top: 30px;  /* Espacio superior */
+    margin-bottom: 30px;  /* Espacio inferior */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Formulario */
+.contact-form {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    min-height: auto;  /* Permite que el formulario crezca según el contenido */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Asegura que los campos se alineen arriba */
+    box-sizing: border-box;
+}
+
+/* Título */
+.contact-form h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Estilo de cada grupo de formulario */
+.form-group {
+    position: relative;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+/* Estilo de las etiquetas */
+.form-group label {
+    font-size: 16px;
+    color: #333;
+    display: block;
+}
+
+/* Estilo de los inputs y textarea */
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
+    box-sizing: border-box;
+}
+
+/* Ajustes para el campo de texto (descripción) */
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Botón de envío */
+button {
+    width: 100%;
+    padding: 15px;
+    background-color: #333;
+    color: white;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+#message-container {
+    display: none;
+    position: fixed; /* Para que se muestre en la pantalla completa */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centra el mensaje */
+    padding: 20px;
+    font-size: 16px;
+    color: white;
+    border-radius: 5px;
+    z-index: 9999; /* Para asegurarse de que esté por encima de todo el contenido */
+    text-align: center;
+    width: 80%;
+    max-width: 400px;
+}
+
+/* FOOTER */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.footer-info {
+    flex: 1;
+    padding: 10px;
+}

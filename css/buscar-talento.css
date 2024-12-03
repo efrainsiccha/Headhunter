@@ -23,24 +23,38 @@ body {
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Logo */
+/* Contenedor de logo y nombre */
 .logo {
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
+    align-items: center; /* Alinea los elementos verticalmente en el centro */
+    justify-content: flex-start; /* Alinea los elementos a la izquierda */
 }
 
+/* El enlace ahora será un flexbox también */
+a {
+    display: flex;
+    align-items: center; /* Alinea los elementos verticalmente en el centro */
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    color: inherit; /* Hereda el color del texto */
+}
+
+/* Logo */
 .logo-img {
-    width: 50px;
-    height: 50px;
-    margin-right: 10px;
-    filter: brightness(0) invert(0);
+    width: 50px; /* Ajusta el tamaño del logo */
+    height: 50px; /* Ajusta el tamaño del logo */
+    object-fit: contain; /* Asegura que la imagen no se distorsione */
+    margin-right: 10px; /* Espacio entre la imagen y el texto */
 }
 
+/* Nombre del logo */
 .nombre-logo {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: black;
+    font-size: 1.8rem; /* Ajusta el tamaño del texto */
+    font-weight: bold; /* Establece el texto en negrita */
+    color: black; /* Color del nombre */
+    margin: 0; /* Elimina márgenes extra */
+    line-height: 1; /* Ajusta la altura de línea */
+    display: inline-block; /* Asegura que el texto no se apile en la siguiente línea */
+    vertical-align: middle; /* Alinea el texto verticalmente con la imagen */
 }
 
 /* Barra de búsqueda y ubicación agrupadas */
@@ -127,11 +141,34 @@ body {
     background-color: #333;
 }
 
+.logout-btn {
+    background-color: #f44336; /* Rojo */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.logout-btn:hover {
+    background-color: #d32f2f; /* Rojo oscuro */
+}
+
+/* Contenedor principal para los filtros y las tarjetas */
+.content-container {
+    display: flex; /* Organiza los filtros y las tarjetas en una fila */
+    gap: 20px; /* Espacio entre el filtro y las tarjetas */
+    flex-wrap: nowrap; /* Asegura que el contenedor no se envuelva */
+    justify-content: flex-start; /* Alinea los elementos hacia el inicio */
+    align-items: flex-start; /* Alinea los elementos en la parte superior */
+}
+
 /* Contenedor principal del filtro */
 .filter-container {
     width: 300px;
     padding: 20px;
-    background-color: #f5f5f5;
+    background-color: white;
     border-radius: 8px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -201,6 +238,151 @@ body {
     height: 20px;
 }
 
+/* Contenedor de las tarjetas de trabajadores */
+.worker-cards-container {
+    position: relative;
+    display: flex;
+    flex-direction: column; /* Organiza las tarjetas verticalmente */
+    gap: 15px; /* Espacio más reducido entre las tarjetas */
+    padding: 15px 0; /* Menos espacio alrededor de las tarjetas */
+    max-width: 100%; /* Ocupa el 100% del ancho disponible */
+    width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Estilo para cada tarjeta de trabajador */
+.worker-card {
+    display: flex; /* Flexbox para organizar imagen y texto horizontalmente */
+    width: 95%; /* La tarjeta ocupa el 100% del ancho disponible */
+    height: 190px; /* Ajusté la altura para hacerlo más proporcional */
+    background-color: white;
+    border-radius: 8px;
+    padding: 10px; /* Menos padding para que el contenido esté más junto */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: left; /* Alineación de texto a la izquierda */
+    box-sizing: border-box; /* Incluye el padding en el tamaño total */
+}
+
+/* Estilo para las imágenes dentro de las tarjetas */
+.worker-img {
+    width: 40px; /* Imagen más pequeña para que el texto ocupe más espacio */
+    height: 45px; /* Mantiene la forma cuadrada */
+    border-radius: 50%; /* Imagen redonda */
+    margin-right: 15px; /* Menos espacio entre la imagen y el texto */
+}
+
+/* Estilo para la información dentro de las tarjetas */
+.worker-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly; /* Alinea los elementos de manera uniforme */
+    overflow-wrap: break-word; /* Asegura que las palabras largas se ajusten */
+    gap: 5px; /* Espacio reducido entre los elementos de texto */
+    
+}
+
+.worker-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0; /* Eliminar margen */
+    line-height: 1.2; /* Reducir espacio entre las líneas de texto */
+}
+
+.worker-position {
+    font-size: 14px;
+    color: #666;
+    margin: 0; /* Eliminar margen */
+    line-height: 1.2; /* Reducir espacio entre las líneas de texto */
+}
+
+.worker-description {
+    font-size: 13px; /* Ajusto el tamaño del texto */
+    color: #333;
+    margin: 0; /* Eliminar margen */
+    line-height: 1.4; /* Menos espacio entre las líneas */
+}
+
+.worker-location {
+    font-size: 13px;
+    color: #777;
+    margin: 5px 0 0;
+    line-height: 1.4;
+}
+
+.worker-date {
+    font-size: 12px; /* Un tamaño de fuente más pequeño */
+    color: #999;
+    margin: 0; /* Eliminar margen */
+    line-height: 1.2; /* Reducir espacio entre las líneas de texto */
+}
+
+/* Estilo para el modal (ventana emergente) */
+.modal {
+    display: none; /* Inicialmente oculto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro y translúcido */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 70%;
+    max-width: 600px;
+    position: relative;
+    padding-top: 30px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: -580px;
+    left: 10px;
+    font-size: 30px;
+    color: #333;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.hire-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.hire-btn:hover {
+    background-color: #333;
+}
+
+/* Animación del modal */
+.modal.show {
+    display: flex;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
 
 /* FOOTER */
 

@@ -66,8 +66,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 documentInput.setCustomValidity(""); // Limpiar el mensaje si es válido
             }
         } else if (taxCondition === 'ruc') {
-            if (documentValue.length !== 12) {
-                documentInput.setCustomValidity("El RUC debe tener 12 dígitos.");
+            if (documentValue.length !== 11) {
+                documentInput.setCustomValidity("El RUC debe tener 11 dígitos.");
             } else {
                 documentInput.setCustomValidity(""); // Limpiar el mensaje si es válido
             }
@@ -122,4 +122,64 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Escuchamos entradas en el campo "Número de Teléfono"
     companyPhoneInput.addEventListener('input', validatePhoneNumber);
+});
+
+// Seleccionamos el formulario de creación de cuenta
+document.querySelector('.login-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevenir el comportamiento predeterminado (recarga de la página)
+
+    // Recopilamos los datos del formulario
+    const formData = {
+        companyName: document.getElementById('company-name').value,
+        businessName: document.getElementById('business-name').value,
+        taxCondition: document.getElementById('tax-condition').value,
+        document: document.getElementById('document').value,
+        companyPhone: document.getElementById('company-phone').value,
+        postalCode: document.getElementById('postal-code').value,
+        industry: document.getElementById('industry').value,
+        employeeCount: document.getElementById('employee-count').value,
+        firstName: document.getElementById('first-name').value,
+        lastName: document.getElementById('last-name').value,
+        email: document.getElementById('user-email').value,
+        password: document.getElementById('password').value
+    };
+
+    fetch('http://localhost:3000/api/crear-cuenta', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+    })
+    .then(response => {
+        const messageContainer = document.getElementById('message-container');
+        if (response.ok) {
+            return response.json().then(data => {
+                // Mostrar el mensaje de éxito
+                messageContainer.style.display = 'block';
+                messageContainer.textContent = data.message;
+                messageContainer.style.backgroundColor = 'green';  // Color verde para éxito
+                
+                // Mostrar el mensaje durante 5 segundos y luego redirigir a ingresar.html
+                setTimeout(() => {
+                    messageContainer.style.display = 'none';  // Ocultar el mensaje
+                    window.location.href = 'ingresar.html';  // Redirigir a la página de login
+                }, 2000);  // 2000ms = 2 segundos
+            });
+        } else {
+            throw new Error('Error al crear la cuenta');
+        }
+    })
+    .catch(error => {
+        const messageContainer = document.getElementById('message-container');
+        // Mostrar el mensaje de error
+        messageContainer.style.display = 'block';
+        messageContainer.textContent = 'Error al crear la cuenta';
+        messageContainer.style.backgroundColor = 'red';  // Color rojo para error
+        
+        // Mostrar el mensaje durante 5 segundos y luego ocultarlo (sin redirigir)
+        setTimeout(() => {
+            messageContainer.style.display = 'none';  // Ocultar el mensaje
+        }, 5000);  // 5000ms = 5 segundos
+    });
 });
