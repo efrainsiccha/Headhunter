@@ -138,14 +138,19 @@ function openModal(name, position, description, location, date, email, phone) {
     document.getElementById('modal-email').innerText = email;
     document.getElementById('modal-phone').innerText = phone;
 
-    // Guardar los detalles del trabajador en localStorage cuando se haga clic en "Contactar"
-    document.getElementById('hire-btn').addEventListener('click', function() {
-        localStorage.setItem('workerName', name);
-        localStorage.setItem('workerEmail', email);
-        // Redirigir a la página de contacto
-        window.location.href = "contactar.html";
+    document.getElementById('hire-btn').addEventListener('click', function(event) {
+        event.preventDefault(); // Evitar que la página se recargue
+    
+        // Verificar si el usuario está logueado
+        if (localStorage.getItem("isLoggedIn") === "true") {
+            // El usuario está logueado, redirigir a la página de contratación
+            window.location.href = "contactar.html"; // Redirige a la página de contratación
+        } else {
+            // El usuario no está logueado, redirigir a la página de inicio de sesión
+            window.location.href = "ingresar.html"; // Redirige a la página de inicio de sesión
+        }
     });
-
+    
     document.getElementById('workerModal').classList.add('show');
 }
 
