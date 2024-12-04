@@ -12,7 +12,7 @@ const port = 3000;
 
 // Habilitar CORS para todas las rutas
 app.use(cors({
-    origin: 'http://127.0.0.1:5500'  // Cambiar si es necesario
+  origin: 'https://efrainsiccha.github.io/Headhunter/'  // URL de tu frontend en GitHub Pages
 }));
 
 // Configurar el body parser para manejar solicitudes POST
