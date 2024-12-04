@@ -37,43 +37,49 @@ document.addEventListener('DOMContentLoaded', function () {
         const password = passwordInput.value;
     
         // Realizar la solicitud al servidor para verificar las credenciales
-        fetch('https://headhunter-e1qd.onrender.com/api/crear-cuenta', {
+        fetch('https://headhunter-e1qd.onrender.com/api/login', {  // Cambié la URL a la correcta para login
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ email, password })
+            body: JSON.stringify({ email, password })  // Enviar email y password
         })
-        .then(response => response.json())
-            .then(data => {
-                if (data.message === 'Inicio de sesión exitoso') {
-                    // Inicio de sesión exitoso
-                    messageContainer.style.display = 'block';
-                    messageContainer.textContent = 'Inicio de sesión exitoso';
-                    messageContainer.style.backgroundColor = 'green';
+        .then(response => {
+            // Verificar si la respuesta es correcta
+            if (!response.ok) {
+                throw new Error('Credenciales incorrectas o error en el servidor');
+            }
+            return response.json();  // Convertir la respuesta en JSON
+        })
+        .then(data => {
+            if (data.message === 'Inicio de sesión exitoso') {
+                // Inicio de sesión exitoso
+                messageContainer.style.display = 'block';
+                messageContainer.textContent = 'Inicio de sesión exitoso';
+                messageContainer.style.backgroundColor = 'green';
                 
-                    // Guardar el estado de sesión y los datos de la empresa en localStorage
-                    localStorage.setItem('isLoggedIn', 'true');
-                    localStorage.setItem('userEmail', data.userEmail);  // Guardar el correo de la empresa
-                    localStorage.setItem('companyName', data.companyName);  // Guardar el nombre de la empresa
-                    
-                    // Redirigir después de guardar en localStorage
-                    setTimeout(() => {
-                        messageContainer.style.display = 'none';
-                        window.location.href = 'buscar-talento.html';
-                    }, 1000); // Cambiado a 1 segundo
-                } else {
-                    // Credenciales incorrectas
-                    messageContainer.style.display = 'block';
-                    messageContainer.textContent = 'Credenciales incorrectas. Intenta nuevamente.';
-                    messageContainer.style.backgroundColor = 'red';
+                // Guardar el estado de sesión y los datos de la empresa en localStorage
+                localStorage.setItem('isLoggedIn', 'true');
+                localStorage.setItem('userEmail', data.userEmail);  // Guardar el correo de la empresa
+                localStorage.setItem('companyName', data.companyName);  // Guardar el nombre de la empresa
                 
-                    // Ocultar el mensaje de error después de 1 segundo
-                    setTimeout(() => {
-                        messageContainer.style.display = 'none';
-                    }, 1000); // Cambiado a 1 segundo
-                }
-            })          
+                // Redirigir después de guardar en localStorage
+                setTimeout(() => {
+                    messageContainer.style.display = 'none';
+                    window.location.href = 'buscar-talento.html';
+                }, 1000); // Cambiado a 1 segundo
+            } else {
+                // Credenciales incorrectas
+                messageContainer.style.display = 'block';
+                messageContainer.textContent = 'Credenciales incorrectas. Intenta nuevamente.';
+                messageContainer.style.backgroundColor = 'red';
+                
+                // Ocultar el mensaje de error después de 1 segundo
+                setTimeout(() => {
+                    messageContainer.style.display = 'none';
+                }, 1000); // Cambiado a 1 segundo
+            }
+        })
         .catch(error => {
             console.error('Error:', error);
             messageContainer.style.display = 'block';

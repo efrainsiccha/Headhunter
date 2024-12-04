@@ -82,7 +82,6 @@ app.post('/api/crear-cuenta', (req, res) => {
   });
 });
 
-// Ruta para la autenticación de inicio de sesión (validar credenciales)
 app.post('/api/login', (req, res) => {
   const { email, password } = req.body;
 
@@ -97,7 +96,7 @@ app.post('/api/login', (req, res) => {
   pool.query(query, [email, password], (err, results) => {
     if (err) {
       console.error('Error al consultar la base de datos:', err);
-      return res.status(500).send('Error al verificar las credenciales');
+      return res.status(500).json({ message: 'Error al verificar las credenciales' });  // Asegúrate de enviar JSON
     }
 
     if (results.length > 0) {
@@ -107,12 +106,12 @@ app.post('/api/login', (req, res) => {
       // Enviar los datos de la empresa junto con el mensaje de inicio de sesión exitoso
       res.status(200).json({
         message: 'Inicio de sesión exitoso',
-        userEmail: user.email,   // Correo del usuario (empresa) en la tabla usuarios
-        companyName: user.company_name  // Nombre de la empresa desde la tabla empresas
+        userEmail: user.email,
+        companyName: user.company_name
       });
     } else {
       // Si no se encuentra el usuario o las credenciales son incorrectas
-      res.status(401).json({ message: 'Credenciales incorrectas' });
+      res.status(401).json({ message: 'Credenciales incorrectas' });  // Asegúrate de enviar JSON
     }
   });
 });
