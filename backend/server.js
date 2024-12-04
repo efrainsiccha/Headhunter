@@ -96,7 +96,7 @@ app.post('/api/login', (req, res) => {
   pool.query(query, [email, password], (err, results) => {
     if (err) {
       console.error('Error al consultar la base de datos:', err);
-      return res.status(500).json({ message: 'Error al verificar las credenciales' });  // Asegúrate de enviar JSON
+      return res.status(500).json({ message: 'Error al verificar las credenciales' });
     }
 
     if (results.length > 0) {
@@ -111,7 +111,7 @@ app.post('/api/login', (req, res) => {
       });
     } else {
       // Si no se encuentra el usuario o las credenciales son incorrectas
-      res.status(401).json({ message: 'Credenciales incorrectas' });  // Asegúrate de enviar JSON
+      res.status(401).json({ message: 'Credenciales incorrectas' });
     }
   });
 });
