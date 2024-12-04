@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const password = passwordInput.value;
     
         // Realizar la solicitud al servidor para verificar las credenciales
-        fetch('http://localhost:3000/api/login', {
+        fetch('https://headhunter-e1qd.onrender.com/api/crear-cuenta', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

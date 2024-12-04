@@ -144,7 +144,7 @@ document.querySelector('.login-form').addEventListener('submit', function(event)
         password: document.getElementById('password').value
     };
 
-    fetch('http://localhost:3000/api/crear-cuenta', {
+    fetch('https://headhunter-e1qd.onrender.com/api/crear-cuenta', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
