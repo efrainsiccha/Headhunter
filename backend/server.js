@@ -12,7 +12,7 @@ const port = process.env.PORT || 3000;  // Si no hay puerto en el entorno, usa e
 
 // Habilitar CORS para todas las rutas
 app.use(cors({
-  origin: 'https://efrainsiccha.github.io/Headhunter/',  // URL de tu frontend en GitHub Pages
+  origin: 'https://efrainsiccha.github.io',  // Acepta todas las páginas dentro del dominio
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
