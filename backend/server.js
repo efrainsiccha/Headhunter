@@ -1,10 +1,5 @@
 // Cargar las variables de entorno desde el archivo .env
 require('dotenv').config();
-console.log(process.env.DB_HOST);
-console.log(process.env.DB_PORT);
-console.log(process.env.DB_USER);
-console.log(process.env.DB_PASSWORD);
-console.log(process.env.DB_NAME);      // Verifica si esta variable está definida
 
 // Importar las dependencias necesarias
 const express = require('express');
@@ -23,6 +18,7 @@ app.use(cors({
 // Configurar el body parser para manejar solicitudes POST
 app.use(express.json()); // Permite que Express maneje los cuerpos JSON
 
+// Crear un pool de conexiones
 const pool = mysql.createPool({
   host: process.env.DB_HOST,
   port: process.env.DB_PORT,
@@ -32,9 +28,10 @@ const pool = mysql.createPool({
   waitForConnections: true,
   connectionLimit: 10,  // Número máximo de conexiones simultáneas
   queueLimit: 0,  // No hay límite en la cola de conexiones
-  connectTimeout: 100000 // Timeout de 30 segundos
+  connectTimeout: 500000 // Timeout de 30 segundos
 });
 
+// Verificar la conexión inicial (puedes quitar esto una vez confirmes que funciona)
 pool.getConnection((err, connection) => {
   if (err) {
     console.error('Error en la conexión con la base de datos: ', err);
@@ -56,7 +53,8 @@ app.post('/api/crear-cuenta', (req, res) => {
     INSERT INTO empresas (company_name, business_name, tax_condition, document, company_phone, postal_code, industry, employee_count)
     VALUES (?, ?, ?, ?, ?, ?, ?, ?)
   `;
-  connection.query(empresaQuery, [companyName, businessName, taxCondition, document, companyPhone, postalCode, industry, employeeCount], (err, result) => {
+  
+  pool.query(empresaQuery, [companyName, businessName, taxCondition, document, companyPhone, postalCode, industry, employeeCount], (err, result) => {
     if (err) {
       console.error('Error al insertar empresa:', err);
       return res.status(500).send('Error al crear la cuenta');
@@ -70,7 +68,8 @@ app.post('/api/crear-cuenta', (req, res) => {
       INSERT INTO usuarios (first_name, last_name, email, password, company_id)
       VALUES (?, ?, ?, ?, ?)
     `;
-    connection.query(usuarioQuery, [firstName, lastName, email, password, companyId], (err, result) => {
+    
+    pool.query(usuarioQuery, [firstName, lastName, email, password, companyId], (err, result) => {
       if (err) {
         console.error('Error al insertar usuario:', err);
         return res.status(500).send('Error al crear la cuenta');
@@ -86,14 +85,14 @@ app.post('/api/login', (req, res) => {
   const { email, password } = req.body;
 
   // Consultar si el email y la contraseña coinciden en la base de datos
-    const query = `
+  const query = `
     SELECT usuarios.*, empresas.company_name
     FROM usuarios 
     JOIN empresas ON usuarios.company_id = empresas.id 
     WHERE usuarios.email = ? AND usuarios.password = ?;
   `;
 
-  connection.query(query, [email, password], (err, results) => {
+  pool.query(query, [email, password], (err, results) => {
     if (err) {
       console.error('Error al consultar la base de datos:', err);
       return res.status(500).send('Error al verificar las credenciales');
