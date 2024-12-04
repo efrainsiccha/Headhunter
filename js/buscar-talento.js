@@ -114,8 +114,6 @@ departamentoSelect.addEventListener('change', actualizarDistritos);
 // Inicializar el filtro mostrando todos los distritos si no hay un filtro activo
 document.addEventListener('DOMContentLoaded', actualizarDistritos);
 
-
-
 document.getElementById('clear-filters').addEventListener('click', function() {
     // Restablecer todos los filtros
     document.getElementById('fecha-publicacion').value = 'todos';
