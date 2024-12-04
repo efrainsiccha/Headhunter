@@ -85,6 +85,9 @@ app.post('/api/crear-cuenta', (req, res) => {
 app.post('/api/login', (req, res) => {
   const { email, password } = req.body;
 
+  // Mostrar lo que se recibe del frontend
+  console.log("Recibido:", email, password);
+
   // Consultar si el email y la contraseña coinciden en la base de datos
   const query = `
     SELECT usuarios.*, empresas.company_name

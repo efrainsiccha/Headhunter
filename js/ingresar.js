@@ -30,27 +30,21 @@ document.addEventListener('DOMContentLoaded', function () {
     const messageContainer = document.getElementById('message-container');
 
     form.addEventListener('submit', function (event) {
-        event.preventDefault(); // Evita que se recargue la página
+        event.preventDefault(); // Prevenir que la página se recargue
     
         // Obtener los valores del formulario
         const email = emailInput.value;
         const password = passwordInput.value;
     
         // Realizar la solicitud al servidor para verificar las credenciales
-        fetch('https://headhunter-e1qd.onrender.com/api/login', {  // Cambié la URL a la correcta para login
+        fetch('https://headhunter-e1qd.onrender.com/api/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ email, password })  // Enviar email y password
+            body: JSON.stringify({ email, password })
         })
-        .then(response => {
-            // Verificar si la respuesta es correcta
-            if (!response.ok) {
-                throw new Error('Credenciales incorrectas o error en el servidor');
-            }
-            return response.json();  // Convertir la respuesta en JSON
-        })
+        .then(response => response.json())
         .then(data => {
             if (data.message === 'Inicio de sesión exitoso') {
                 // Inicio de sesión exitoso
@@ -67,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 setTimeout(() => {
                     messageContainer.style.display = 'none';
                     window.location.href = 'buscar-talento.html';
-                }, 1000); // Cambiado a 1 segundo
+                }, 1000);
             } else {
                 // Credenciales incorrectas
                 messageContainer.style.display = 'block';
@@ -77,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Ocultar el mensaje de error después de 1 segundo
                 setTimeout(() => {
                     messageContainer.style.display = 'none';
-                }, 1000); // Cambiado a 1 segundo
+                }, 1000);
             }
         })
         .catch(error => {
@@ -89,27 +83,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // Ocultar el mensaje de error después de 1 segundo
             setTimeout(() => {
                 messageContainer.style.display = 'none';
-            }, 1000); // Cambiado a 1 segundo
+            }, 1000);
         });
     });
-    
-    // Función de cierre de sesión
-    function logout() {
-        // Eliminar el estado de sesión de localStorage
-        localStorage.removeItem('isLoggedIn');
-        localStorage.removeItem('userEmail');
-        localStorage.removeItem('companyName');
-
-        // Volver a mostrar los botones de "Crear Cuenta" e "Ingresar"
-        document.querySelector('.header-buttons').style.display = 'flex';
-
-        // Eliminar el botón de "Cerrar sesión"
-        const logoutButton = document.querySelector('.btn-header');
-        if (logoutButton) {
-            logoutButton.remove();
-        }
-
-        // Redirigir a la página de inicio
-        window.location.href = 'index.html';
-    }
 });
