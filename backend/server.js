@@ -8,7 +8,7 @@ const mysql = require('mysql2');
 
 // Crear una instancia de Express
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;  // Si no hay puerto en el entorno, usa el 3000
 
 // Habilitar CORS para todas las rutas
 app.use(cors({
